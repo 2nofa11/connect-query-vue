@@ -11,7 +11,7 @@ export default defineConfig({
   },
   test: {
     environment: "happy-dom",
-    exclude: ["connect-query-es/**", "node_modules/**"],
+    exclude: ["connect-query-es/**", "examples/**", "node_modules/**"],
   },
   run: {
     tasks: {
