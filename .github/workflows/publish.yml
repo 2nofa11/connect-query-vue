@@ -23,6 +23,9 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
+      - name: Build test-utils
+        run: cd connect-query-es && npm ci && npm run build --workspace=packages/test-utils
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
