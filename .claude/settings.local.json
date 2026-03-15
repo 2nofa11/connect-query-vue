@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(wc -l /Users/2nofa11/Desktop/Development/02_OSS/connect-query-es/packages/protoc-gen-connect-query/src/*.ts)",
-      "Bash(cat /Users/2nofa11/Desktop/Development/02_OSS/connect-query-es/packages/test-utils/src/index.ts 2>/dev/null || find /Users/2nofa11/Desktop/Development/02_OSS/connect-query-es/packages/test-utils/src -name \"*.ts\" ! -name \"*_pb.ts\" | head -10 | xargs ls)"
-    ]
-  }
-}
