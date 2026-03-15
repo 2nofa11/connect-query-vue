@@ -17,7 +17,9 @@ jobs:
           submodules: recursive
 
       - name: Install Vite+
-        run: curl -fsSL https://vite.plus | bash
+        run: |
+          curl -fsSL https://vite.plus | bash
+          echo "$HOME/.vite-plus/bin" >> $GITHUB_PATH
 
       - uses: actions/setup-node@v4
         with:
