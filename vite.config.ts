@@ -27,6 +27,10 @@ export default defineConfig({
       "update-coverage": {
         command: "bash scripts/update-coverage.sh",
       },
+      release: {
+        command: "vp exec bumpp patch --commit --tag --push",
+        cache: false,
+      },
     },
   },
 });

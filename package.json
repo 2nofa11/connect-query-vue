@@ -1,16 +1,16 @@
 {
   "name": "connect-query-vue",
-  "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "version": "0.0.1-alpha.1",
+  "description": "Vue adapter for connect-query-core, bringing Connect RPC support to @tanstack/vue-query",
+  "homepage": "https://github.com/2nofa11/connect-query-vue#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/2nofa11/connect-query-vue/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
+  "author": "2nofa11",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/2nofa11/connect-query-vue.git"
   },
   "files": [
     "dist"
