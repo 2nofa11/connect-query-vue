@@ -17,26 +17,26 @@ npm install connect-query-vue @connectrpc/connect-query-core @connectrpc/connect
 Provide a Connect transport in your app:
 
 ```ts
-import { createConnectTransport } from '@connectrpc/connect-web'
-import { TransportKey } from 'connect-query-vue'
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { TransportKey } from "connect-query-vue";
+import { createApp } from "vue";
+import App from "./App.vue";
 
-const transport = createConnectTransport({ baseUrl: 'https://demo.connectrpc.com' })
+const transport = createConnectTransport({ baseUrl: "https://demo.connectrpc.com" });
 
-const app = createApp(App)
-app.provide(TransportKey, transport)
-app.mount('#app')
+const app = createApp(App);
+app.provide(TransportKey, transport);
+app.mount("#app");
 ```
 
 ### useQuery
 
 ```vue
 <script setup lang="ts">
-import { useQuery } from 'connect-query-vue'
-import { ElizaService } from './gen/eliza_pb'
+import { useQuery } from "connect-query-vue";
+import { ElizaService } from "./gen/eliza_pb";
 
-const { data, isPending } = useQuery(ElizaService.say, { sentence: 'Hello' })
+const { data, isPending } = useQuery(ElizaService.say, { sentence: "Hello" });
 </script>
 
 <template>
