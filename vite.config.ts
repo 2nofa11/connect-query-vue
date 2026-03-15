@@ -1,8 +1,8 @@
-import tsdownConfig from './tsdown.config.js';
+import tsdownConfig from "./tsdown.config.ts";
 
-import { defineConfig } from 'vite-plus';
+import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: tsdownConfig,
-  lint: {"options":{"typeAware":true,"typeCheck":true}},
+  lint: { options: { typeAware: true, typeCheck: true } },
 });

@@ -74,3 +74,7 @@ These commands map to their corresponding tools. For example, `vp dev --port 300
 - [ ] Run `vp install` after pulling remote changes and before getting started.
 - [ ] Run `vp check` and `vp test` to validate changes.
 <!--VITE PLUS END-->
+
+# Project Rules
+
+- **NEVER use `npm` or `npx` directly.** All package management and script execution must go through `vp`. Use `vp install`, `vp add`, `vp run`, `vp dlx`, etc.
