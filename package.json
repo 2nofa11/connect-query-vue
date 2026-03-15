@@ -49,7 +49,7 @@
   "peerDependencies": {
     "@bufbuild/protobuf": "2.x",
     "@connectrpc/connect": "2.x",
-    "@tanstack/vue-query": "5.x",
+    "@tanstack/vue-query": ">=5.62.0",
     "vue": "3.x"
   },
   "packageManager": "pnpm@10.32.1",
