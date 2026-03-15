@@ -4,8 +4,26 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: tsdownConfig,
-  lint: { options: { typeAware: true, typeCheck: true } },
+  fmt: { ignorePatterns: ["connect-query-es/**"] },
+  lint: {
+    ignorePatterns: ["connect-query-es/**"],
+    options: { typeAware: true, typeCheck: true },
+  },
   test: {
     environment: "happy-dom",
+    exclude: ["connect-query-es/**", "node_modules/**"],
+  },
+  run: {
+    tasks: {
+      "build:test-utils": {
+        command: "vp pm run build --workspace=packages/test-utils",
+        cwd: "connect-query-es",
+        cache: true,
+      },
+      ci: {
+        command: "vp test && vp check",
+        dependsOn: ["build:test-utils"],
+      },
+    },
   },
 });

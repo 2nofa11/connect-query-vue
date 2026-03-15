@@ -17,8 +17,9 @@ import type { QueryClientConfig } from "@tanstack/vue-query";
 import { QueryClient, VueQueryPlugin } from "@tanstack/vue-query";
 import type { App, Plugin } from "vue";
 
+import { mockEliza } from "test-utils";
+
 import { transportKey } from "../use-transport.js";
-import { mockEliza } from "./mock-transport.js";
 
 type Plugins = (Plugin | [Plugin, ...unknown[]])[];
 
