@@ -54,7 +54,7 @@ export type UseQueryOptions<O extends DescMessage, SelectOutData = MessageShape<
 /**
  * Options for useSuspenseQuery
  */
-export type UseSuspenseQueryOptions<O extends DescMessage, SelectOutData = MessageShape<O>> = Omit<
+type UseSuspenseQueryOptions<O extends DescMessage, SelectOutData = MessageShape<O>> = Omit<
   Exclude<
     TanStackUseQueryOptions<
       MessageShape<O>,
