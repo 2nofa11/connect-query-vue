@@ -26,7 +26,7 @@
     "dev": "vp pack --watch",
     "test": "vp test",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "vp pack"
   },
   "dependencies": {
     "@connectrpc/connect-query-core": "2.2.0"
