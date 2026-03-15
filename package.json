@@ -1,6 +1,6 @@
 {
   "name": "connect-query-vue",
-  "version": "0.0.4",
+  "version": "0.0.2",
   "description": "Vue adapter for connect-query-core, bringing Connect RPC support to @tanstack/vue-query",
   "homepage": "https://github.com/2nofa11/connect-query-vue#readme",
   "bugs": {
