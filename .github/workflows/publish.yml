@@ -16,25 +16,24 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: pnpm/action-setup@v4
+      - name: Install Vite+
+        run: curl -fsSL https://vite.plus | bash
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: pnpm
           registry-url: https://registry.npmjs.org
 
       - name: Build test-utils
         run: cd connect-query-es && npm ci && npm run build --workspace=packages/test-utils
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: vp install
 
       - name: Test
-        run: pnpm test
+        run: vp test
 
       - name: Build
-        run: pnpm run build
+        run: vp pack
 
       - name: Publish
         run: npm publish --provenance
