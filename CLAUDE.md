@@ -78,3 +78,4 @@ These commands map to their corresponding tools. For example, `vp dev --port 300
 # Project Rules
 
 - **NEVER use `npm` or `npx` directly.** All package management and script execution must go through `vp`. Use `vp install`, `vp add`, `vp run`, `vp dlx`, etc.
+- **GitHub Actions workflows (`.github/workflows/*.yml`) must also use `vp` commands.** Install Vite+ with `curl -fsSL https://vite.plus | bash` and use `vp install`, `vp test`, `vp pack`, etc. Do not use `pnpm`, `npm`, or `npx` in workflow files.
