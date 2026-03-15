@@ -23,8 +23,9 @@ import type { Message } from "@bufbuild/protobuf";
 /**
  * Describes the file eliza.proto.
  */
-export const file_eliza: GenFile = /*@__PURE__*/
-  fileDesc("CgtlbGl6YS5wcm90bxITY29ubmVjdHJwYy5lbGl6YS52MSIeCgpTYXlSZXF1ZXN0EhAKCHNlbnRlbmNlGAEgASgJIh8KC1NheVJlc3BvbnNlEhAKCHNlbnRlbmNlGAEgASgJMloKDEVsaXphU2VydmljZRJKCgNTYXkSHy5jb25uZWN0cnBjLmVsaXphLnYxLlNheVJlcXVlc3QaIC5jb25uZWN0cnBjLmVsaXphLnYxLlNheVJlc3BvbnNlIgBiBnByb3RvMw");
+export const file_eliza: GenFile /*@__PURE__*/ = fileDesc(
+  "CgtlbGl6YS5wcm90bxITY29ubmVjdHJwYy5lbGl6YS52MSIeCgpTYXlSZXF1ZXN0EhAKCHNlbnRlbmNlGAEgASgJIh8KC1NheVJlc3BvbnNlEhAKCHNlbnRlbmNlGAEgASgJMloKDEVsaXphU2VydmljZRJKCgNTYXkSHy5jb25uZWN0cnBjLmVsaXphLnYxLlNheVJlcXVlc3QaIC5jb25uZWN0cnBjLmVsaXphLnYxLlNheVJlc3BvbnNlIgBiBnByb3RvMw",
+);
 
 /**
  * SayRequest is a single-sentence request.
@@ -42,8 +43,7 @@ export type SayRequest = Message<"connectrpc.eliza.v1.SayRequest"> & {
  * Describes the message connectrpc.eliza.v1.SayRequest.
  * Use `create(SayRequestSchema)` to create a new message.
  */
-export const SayRequestSchema: GenMessage<SayRequest> = /*@__PURE__*/
-  messageDesc(file_eliza, 0);
+export const SayRequestSchema: GenMessage<SayRequest> /*@__PURE__*/ = messageDesc(file_eliza, 0);
 
 /**
  * SayResponse is a single-sentence response.
@@ -61,8 +61,7 @@ export type SayResponse = Message<"connectrpc.eliza.v1.SayResponse"> & {
  * Describes the message connectrpc.eliza.v1.SayResponse.
  * Use `create(SayResponseSchema)` to create a new message.
  */
-export const SayResponseSchema: GenMessage<SayResponse> = /*@__PURE__*/
-  messageDesc(file_eliza, 1);
+export const SayResponseSchema: GenMessage<SayResponse> /*@__PURE__*/ = messageDesc(file_eliza, 1);
 
 /**
  * ElizaService provides a way to talk to Eliza, a port of the DOCTOR script
@@ -84,7 +83,5 @@ export const ElizaService: GenService<{
     methodKind: "unary";
     input: typeof SayRequestSchema;
     output: typeof SayResponseSchema;
-  },
-}> = /*@__PURE__*/
-  serviceDesc(file_eliza, 0);
-
+  };
+}> /*@__PURE__*/ = serviceDesc(file_eliza, 0);

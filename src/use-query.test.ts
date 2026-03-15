@@ -23,7 +23,7 @@ import { BigIntService } from "test-utils/gen/bigint_pb.js";
 import { ElizaService } from "test-utils/gen/eliza_pb.js";
 import { mockBigInt, mockEliza } from "test-utils";
 
-import { useQuery } from "./use-query.js";
+import { useQuery, useSuspenseQuery } from "./use-query.js";
 import { wrapper } from "./test/test-wrapper.js";
 
 const sayMethodDescriptor = ElizaService.method.say;
@@ -194,6 +194,81 @@ describe("useQuery", () => {
       plugins,
     );
 
+    await flushPromises();
+    expect(result.data.value?.sentence).toBe("Hello world");
+
+    sentence.value = "vue";
+    await flushPromises();
+    expect(result.data.value?.sentence).toBe("Hello vue");
+  });
+});
+
+describe("useSuspenseQuery", () => {
+  it("can query data", async () => {
+    const { plugins } = wrapper({}, mockedElizaTransport);
+    const { result } = withSetup(
+      () => useSuspenseQuery(sayMethodDescriptor, { sentence: "hello" }),
+      plugins,
+    );
+    await flushPromises();
+    expect(result.isSuccess.value).toBe(true);
+    expect(typeof result.data.value?.sentence).toBe("string");
+  });
+
+  it("can be used along with the select", async () => {
+    const { plugins } = wrapper({}, mockedElizaTransport);
+    const { result } = withSetup(
+      () =>
+        useSuspenseQuery(
+          sayMethodDescriptor,
+          { sentence: "hello" },
+          { select: (data) => data.sentence.length },
+        ),
+      plugins,
+    );
+    await flushPromises();
+    expect(result.isSuccess.value).toBe(true);
+    expect(result.data.value).toBe(11);
+  });
+
+  it("can pass headers through", async () => {
+    let resolve: () => void;
+    const promise = new Promise<void>((res) => {
+      resolve = res;
+    });
+    const transport = mockEliza({ sentence: "Response 1" }, false, {
+      router: {
+        interceptors: [
+          (next) => (req) => {
+            expect(req.header.get("x-custom-header")).toEqual("custom-value");
+            resolve();
+            return next(req);
+          },
+        ],
+      },
+    });
+    const { plugins } = wrapper({}, mockedElizaTransport);
+    const { result } = withSetup(
+      () =>
+        useSuspenseQuery(
+          sayMethodDescriptor,
+          { sentence: "hello" },
+          { transport, headers: { "x-custom-header": "custom-value" } },
+        ),
+      plugins,
+    );
+    await flushPromises();
+    await promise;
+    expect(result.data.value?.sentence).toBe("Response 1");
+  });
+
+  it("can accept a reactive input", async () => {
+    const { plugins } = wrapper({}, mockedElizaTransport);
+    const sentence = ref("world");
+    const { result } = withSetup(
+      () => useSuspenseQuery(sayMethodDescriptor, () => ({ sentence: sentence.value })),
+      plugins,
+    );
     await flushPromises();
     expect(result.data.value?.sentence).toBe("Hello world");
 

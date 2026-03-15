@@ -31,28 +31,97 @@ import { computed, toValue } from "vue";
 
 import { useTransport } from "./use-transport.js";
 
-// Extract the plain object type from MaybeRef<T> = Ref<T> | ComputedRef<T> | T
-// Exclude removes Ref<unknown> (which also covers ComputedRef<unknown>) leaving just T
-type PlainOptions<T> = Exclude<T, Ref<unknown>>;
-
 /**
  * Options for useQuery
  */
 export type UseQueryOptions<O extends DescMessage, SelectOutData = MessageShape<O>> = Omit<
-  PlainOptions<
+  Exclude<
     TanStackUseQueryOptions<
       MessageShape<O>,
       ConnectError,
       SelectOutData,
       MessageShape<O>,
       ConnectQueryKey<O>
-    >
+    >,
+    Ref<unknown>
   >,
   "queryFn" | "queryKey"
 > & {
   /** The transport to be used for the fetching. */
   transport?: Transport;
 };
+
+/**
+ * Options for useSuspenseQuery
+ */
+export type UseSuspenseQueryOptions<O extends DescMessage, SelectOutData = MessageShape<O>> = Omit<
+  Exclude<
+    TanStackUseQueryOptions<
+      MessageShape<O>,
+      ConnectError,
+      SelectOutData,
+      MessageShape<O>,
+      ConnectQueryKey<O>
+    >,
+    Ref<unknown>
+  >,
+  "queryFn" | "queryKey" | "enabled" | "placeholderData"
+> & {
+  /** The transport to be used for the fetching. */
+  transport?: Transport;
+  /** Headers to be sent with the request. */
+  headers?: HeadersInit;
+};
+
+/**
+ * Merges base options from createQueryOptions with user-supplied options into the type
+ * that @tanstack/vue-query's useQuery expects.
+ *
+ * Type assertion is required here because @tanstack/vue-query wraps TQueryKey with
+ * DeepUnwrapRef<> in each option property type (e.g. queryFn, staleTime). TypeScript
+ * cannot prove DeepUnwrapRef<ConnectQueryKey<O>> equals ConnectQueryKey<O> for generic O,
+ * even though ConnectQueryKey contains no Ref types at runtime.
+ */
+function mergeQueryOptions<O extends DescMessage, SelectOutData>(
+  base: object,
+  override: object,
+): TanStackUseQueryOptions<
+  MessageShape<O>,
+  ConnectError,
+  SelectOutData,
+  MessageShape<O>,
+  ConnectQueryKey<O>
+> {
+  return { ...base, ...override } as unknown as TanStackUseQueryOptions<
+    MessageShape<O>,
+    ConnectError,
+    SelectOutData,
+    MessageShape<O>,
+    ConnectQueryKey<O>
+  >;
+}
+
+/**
+ * Query the method provided. Maps to useSuspenseQuery on tanstack/react-query
+ */
+export function useSuspenseQuery<
+  I extends DescMessage,
+  O extends DescMessage,
+  SelectOutData = MessageShape<O>,
+>(
+  schema: DescMethodUnary<I, O>,
+  input?: MaybeRefOrGetter<MessageInitShape<I> | undefined>,
+  { transport, headers, ...queryOptions }: UseSuspenseQueryOptions<O, SelectOutData> = {},
+): UseQueryReturnType<SelectOutData, ConnectError> {
+  const transportFromCtx = useTransport();
+  const baseOptions = computed(() =>
+    createQueryOptions(schema, toValue(input), {
+      transport: transport ?? transportFromCtx,
+      headers,
+    }),
+  );
+  return tsUseQuery(() => mergeQueryOptions<O, SelectOutData>(baseOptions.value, queryOptions));
+}
 
 /**
  * Query the method provided. Maps to useQuery on @tanstack/vue-query
@@ -72,8 +141,5 @@ export function useQuery<
       transport: transport ?? transportFromCtx,
     }),
   );
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return tsUseQuery(
-    computed(() => ({ ...baseOptions.value, ...queryOptions }) as any),
-  ) as UseQueryReturnType<SelectOutData, ConnectError>;
+  return tsUseQuery(() => mergeQueryOptions<O, SelectOutData>(baseOptions.value, queryOptions));
 }

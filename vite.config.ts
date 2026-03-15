@@ -6,7 +6,7 @@ export default defineConfig({
   pack: tsdownConfig,
   fmt: { ignorePatterns: ["connect-query-es/**"] },
   lint: {
-    ignorePatterns: ["connect-query-es/**"],
+    ignorePatterns: ["connect-query-es/**", "examples/**"],
     options: { typeAware: true, typeCheck: true },
   },
   test: {
