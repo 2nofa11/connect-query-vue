@@ -1,0 +1,39 @@
+{
+  "name": "connect-query-vue-example-basic",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "generate": "buf generate",
+    "test": "vp test",
+    "test:watch": "vp test --watch",
+    "check": "vp check"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.5.1",
+    "@connectrpc/connect": "^2.0.2",
+    "@connectrpc/connect-web": "^2.0.2",
+    "@tanstack/vue-query": "^5.79.0",
+    "@tanstack/vue-query-devtools": "^5.79.0",
+    "connect-query-vue": "file:../../..",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "1.54.0",
+    "@bufbuild/protoc-gen-es": "^2.5.1",
+    "@connectrpc/protoc-gen-connect-query": "^2.2.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.8.4",
+    "typescript": "^5.8.3",
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vite-plus": "latest"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
+  }
+}
