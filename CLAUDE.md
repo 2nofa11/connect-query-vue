@@ -1,81 +1,49 @@
-<!--VITE PLUS START-->
+# Vite+ (`vp`) — Unified Toolchain
 
-# Using Vite+, the Unified Toolchain for the Web
+Global CLI wrapping Vite, Vitest, tsdown, Oxlint, Oxfmt. Run `vp help` or `vp <cmd> --help`.
 
-This project is using Vite+, a unified toolchain built on top of Vite, Rolldown, Vitest, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management, package management, and frontend tooling in a single global CLI called `vp`. Vite+ is distinct from Vite, but it invokes Vite through `vp dev` and `vp build`.
+## Key Commands
+| Category | Commands |
+|----------|----------|
+| Setup | `vp install` (`i`), `vp create`, `vp env` |
+| Develop | `vp dev`, `vp check`, `vp lint`, `vp fmt`, `vp test` |
+| Build | `vp build`, `vp pack`, `vp preview` |
+| Deps | `vp add`, `vp remove`, `vp update`, `vp outdated`, `vp why` |
+| Run | `vp run <script>`, `vp exec`, `vp dlx` |
 
-## Vite+ Workflow
+## Rules (MUST follow)
+- **Never use `pnpm`/`npm`/`npx` directly** — always use `vp`
+- **No `vp vitest` or `vp oxlint`** — use `vp test` and `vp lint`
+- **Don't install Vitest/Oxlint/Oxfmt/tsdown** — they're bundled in Vite+
+- **Import from `vite-plus`** not `vite`/`vitest`: `import { defineConfig } from 'vite-plus'`, `import { expect, test } from 'vite-plus/test'`
+- **Use `vp dlx`** instead of `npx`/`pnpm dlx`
+- **Type-aware linting**: `vp lint --type-aware` (no extra install needed)
+- **Conflicting scripts**: use `vp run test` if `test` script conflicts with built-in
 
-`vp` is a global binary that handles the full development lifecycle. Run `vp help` to print a list of commands and `vp <command> --help` for information about a specific command.
-
-### Start
-
-- create - Create a new project from a template
-- migrate - Migrate an existing project to Vite+
-- config - Configure hooks and agent integration
-- staged - Run linters on staged files
-- install (`i`) - Install dependencies
-- env - Manage Node.js versions
-
-### Develop
-
-- dev - Run the development server
-- check - Run format, lint, and TypeScript type checks
-- lint - Lint code
-- fmt - Format code
-- test - Run tests
-
-### Execute
-
-- run - Run monorepo tasks
-- exec - Execute a command from local `node_modules/.bin`
-- dlx - Execute a package binary without installing it as a dependency
-- cache - Manage the task cache
-
-### Build
-
-- build - Build for production
-- pack - Build libraries
-- preview - Preview production build
-
-### Manage Dependencies
-
-Vite+ automatically detects and wraps the underlying package manager such as pnpm, npm, or Yarn through the `packageManager` field in `package.json` or package manager-specific lockfiles.
-
-- add - Add packages to dependencies
-- remove (`rm`, `un`, `uninstall`) - Remove packages from dependencies
-- update (`up`) - Update packages to latest versions
-- dedupe - Deduplicate dependencies
-- outdated - Check for outdated packages
-- list (`ls`) - List installed packages
-- why (`explain`) - Show why a package is installed
-- info (`view`, `show`) - View package information from the registry
-- link (`ln`) / unlink - Manage local package links
-- pm - Forward a command to the package manager
-
-### Maintain
-
-- upgrade - Update `vp` itself to the latest version
-
-These commands map to their corresponding tools. For example, `vp dev --port 3000` runs Vite's dev server and works the same as Vite. `vp test` runs JavaScript tests through the bundled Vitest. The version of all tools can be checked using `vp --version`. This is useful when researching documentation, features, and bugs.
-
-## Common Pitfalls
-
-- **Using the package manager directly:** Do not use pnpm, npm, or Yarn directly. Vite+ can handle all package manager operations.
-- **Always use Vite commands to run tools:** Don't attempt to run `vp vitest` or `vp oxlint`. They do not exist. Use `vp test` and `vp lint` instead.
-- **Running scripts:** Vite+ commands take precedence over `package.json` scripts. If there is a `test` script defined in `scripts` that conflicts with the built-in `vp test` command, run it using `vp run test`.
-- **Do not install Vitest, Oxlint, Oxfmt, or tsdown directly:** Vite+ wraps these tools. They must not be installed directly. You cannot upgrade these tools by installing their latest versions. Always use Vite+ commands.
-- **Use Vite+ wrappers for one-off binaries:** Use `vp dlx` instead of package-manager-specific `dlx`/`npx` commands.
-- **Import JavaScript modules from `vite-plus`:** Instead of importing from `vite` or `vitest`, all modules should be imported from the project's `vite-plus` dependency. For example, `import { defineConfig } from 'vite-plus';` or `import { expect, test, vi } from 'vite-plus/test';`. You must not install `vitest` to import test utilities.
-- **Type-Aware Linting:** There is no need to install `oxlint-tsgolint`, `vp lint --type-aware` works out of the box.
-
-## Review Checklist for Agents
-
-- [ ] Run `vp install` after pulling remote changes and before getting started.
-- [ ] Run `vp check` and `vp test` to validate changes.
+## Agent Checklist
+- [ ] `vp install` before starting
+- [ ] `vp check` and `vp test` before finishing
 <!--VITE PLUS END-->
+
+# Submodule: connect-query-es
+
+Git submodule at `./connect-query-es/` — upstream: https://github.com/connectrpc/connect-query-es
+
+## Key Packages
+| Package | Path | Role |
+|---------|------|------|
+| `@connectrpc/connect-query-core` | `packages/connect-query-core/` | Core logic (non-hook functions) used as a dependency in this project |
+| `@connectrpc/connect-query` | `packages/connect-query/` | React adapter (reference implementation) |
+| `test-utils` | `packages/test-utils/` | Test utilities — installed as `"test-utils": "file:connect-query-es/packages/test-utils"` |
+| `protoc-gen-connect-query` | `packages/protoc-gen-connect-query/` | Protobuf code generator |
+
+## Notes
+- This project (`connect-query-vue`) is a **Vue adapter** built on top of `connect-query-core`
+- When referencing core API behavior, check `connect-query-es/packages/connect-query-core/`
+- The React adapter in `connect-query-es/packages/connect-query/` serves as the reference for Vue port
+- `connect-query-es` uses its own package manager (`npm`) and build system (Turborepo) — do not run `vp` inside it
 
 # Project Rules
 
-- **NEVER use `npm` or `npx` directly.** All package management and script execution must go through `vp`. Use `vp install`, `vp add`, `vp run`, `vp dlx`, etc.
-- **GitHub Actions workflows (`.github/workflows/*.yml`) must also use `vp` commands.** Install Vite+ with `curl -fsSL https://vite.plus | bash` and use `vp install`, `vp test`, `vp pack`, etc. Do not use `pnpm`, `npm`, or `npx` in workflow files.
+- **NEVER use `npm` or `npx` directly.** All package management must go through `vp`.
+- **GitHub Actions** must also use `vp`. Install with `curl -fsSL https://vite.plus | bash`.
