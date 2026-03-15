@@ -24,6 +24,9 @@ export default defineConfig({
         command: "vp test && vp check",
         dependsOn: ["build:test-utils"],
       },
+      "update-coverage": {
+        command: "bash scripts/update-coverage.sh",
+      },
     },
   },
 });
