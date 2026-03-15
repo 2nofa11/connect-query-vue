@@ -16,7 +16,7 @@
     "@connectrpc/connect-web": "^2.0.2",
     "@tanstack/vue-query": "^5.79.0",
     "@tanstack/vue-query-devtools": "^5.79.0",
-    "connect-query-vue": "file:../../..",
+    "connect-query-vue": "latest",
     "vue": "^3.5.0"
   },
   "devDependencies": {

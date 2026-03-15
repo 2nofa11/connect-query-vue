@@ -28,8 +28,8 @@ importers:
         specifier: ^5.79.0
         version: 5.91.0(@tanstack/vue-query@5.92.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       connect-query-vue:
-        specifier: file:../../..
-        version: file:../../..(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.90.20)(@tanstack/vue-query@5.92.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
+        specifier: latest
+        version: 0.0.1(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.90.20)(@tanstack/vue-query@5.92.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       vue:
         specifier: ^3.5.0
         version: 3.5.30(typescript@5.9.3)
@@ -713,8 +713,8 @@ packages:
   config-chain@1.1.13:
     resolution: {integrity: sha512-qj+f8APARXHrM0hraqXYb2/bOVSV4PvJQlNZ/DVj0QrmNM2q2euizkeuVckQ57J+W0mRH6Hvi+k50M4Jul2VRQ==}
 
-  connect-query-vue@file:../../..:
-    resolution: {directory: ../../.., type: directory}
+  connect-query-vue@0.0.1:
+    resolution: {integrity: sha512-n216g5E8E1prx4jb4PC8152ENtobvuwdrAtIgjud9qbyqHzUlmImSK3gkFiaHIDJXwCz2pARIlnWG7qHHh2AlA==}
     peerDependencies:
       '@bufbuild/protobuf': 2.x
       '@connectrpc/connect': 2.x
@@ -1565,7 +1565,7 @@ snapshots:
       ini: 1.3.8
       proto-list: 1.2.4
 
-  connect-query-vue@file:../../..(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.90.20)(@tanstack/vue-query@5.92.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
+  connect-query-vue@0.0.1(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.90.20)(@tanstack/vue-query@5.92.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@bufbuild/protobuf': 2.11.0
       '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.11.0)
