@@ -19,11 +19,11 @@ import type { Plugin } from "vue";
 import { defineComponent, ref } from "vue";
 import { describe, expect, it } from "vite-plus/test";
 
-import { useQuery } from "../src/use-query.js";
-import { BigIntService } from "./gen/bigint_pb.js";
-import { ElizaService } from "./gen/eliza_pb.js";
-import { mockBigInt, mockEliza } from "./mock-transport.js";
-import { wrapper } from "./test-wrapper.js";
+import { useQuery } from "./use-query.js";
+import { BigIntService } from "./test/gen/bigint_pb.js";
+import { ElizaService } from "./test/gen/eliza_pb.js";
+import { mockBigInt, mockEliza } from "./test/mock-transport.js";
+import { wrapper } from "./test/test-wrapper.js";
 
 const sayMethodDescriptor = ElizaService.method.say;
 const mockedElizaTransport = mockEliza();

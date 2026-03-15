@@ -17,11 +17,11 @@ import { flushPromises, mount } from "@vue/test-utils";
 import { defineComponent } from "vue";
 import { describe, expect, it } from "vite-plus/test";
 
-import { provideTransport, useTransport } from "../src/use-transport.js";
-import { useQuery } from "../src/use-query.js";
-import { ElizaService } from "./gen/eliza_pb.js";
-import { mockBigInt } from "./mock-transport.js";
-import { wrapper } from "./test-wrapper.js";
+import { provideTransport, useTransport } from "./use-transport.js";
+import { useQuery } from "./use-query.js";
+import { ElizaService } from "./test/gen/eliza_pb.js";
+import { mockBigInt } from "./test/mock-transport.js";
+import { wrapper } from "./test/test-wrapper.js";
 
 const sayMethodDescriptor = ElizaService.method.say;
 
