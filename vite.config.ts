@@ -25,7 +25,7 @@ export default defineConfig({
         dependsOn: ["build:test-utils"],
       },
       "update-coverage": {
-        command: "bash scripts/update-coverage.sh",
+        command: "bash scripts/update-coverage.sh && vp check --fix",
       },
       release: {
         command: "vp exec bumpp patch --commit --tag --push",
