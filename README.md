@@ -59,21 +59,21 @@ Returns the Connect transport provided via `TransportKey`.
 
 ### API Coverage vs connect-query (official)
 
-![API Coverage](https://img.shields.io/badge/API%20Coverage-40%25-red)
+![API Coverage](https://img.shields.io/badge/API%20Coverage-60%25-yellow)
 
-Implements **40%** (4/10) of the exports from the official [`@connectrpc/connect-query`](https://github.com/connectrpc/connect-query-es).
+Implements **60%** (6/10) of the exports from the official [`@connectrpc/connect-query`](https://github.com/connectrpc/connect-query-es).
 
 | Status         | API                        |
 | -------------- | -------------------------- |
+| ✅ Implemented | `UseMutationOptions`       |
 | ✅ Implemented | `UseQueryOptions`          |
+| ✅ Implemented | `useMutation`              |
 | ✅ Implemented | `useQuery`                 |
 | ✅ Implemented | `useSuspenseQuery`         |
 | ✅ Implemented | `useTransport`             |
 | ❌ Not yet     | `TransportProvider`        |
 | ❌ Not yet     | `UseInfiniteQueryOptions`  |
-| ❌ Not yet     | `UseMutationOptions`       |
 | ❌ Not yet     | `useInfiniteQuery`         |
-| ❌ Not yet     | `useMutation`              |
 | ❌ Not yet     | `useSuspenseInfiniteQuery` |
 | 🔵 Vue-only    | `provideTransport`         |
 
