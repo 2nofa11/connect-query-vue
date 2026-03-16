@@ -1,5 +1,7 @@
 # connect-query-vue
 
+[![npm](https://img.shields.io/npm/v/connect-query-vue)](https://www.npmjs.com/package/connect-query-vue)
+
 Vue adapter for [connect-query-core](https://github.com/connectrpc/connect-query-es), bringing Connect RPC support to [@tanstack/vue-query](https://tanstack.com/query/latest/docs/framework/vue/overview).
 
 This package is inspired by [connectrpc/connect-query-es#324](https://github.com/connectrpc/connect-query-es/issues/324), which tracks extending connect-query-es to frameworks beyond React. It depends on `@connectrpc/connect-query-core` and provides Vue-specific composables on top of it.
