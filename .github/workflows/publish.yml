@@ -21,7 +21,7 @@ jobs:
           curl -fsSL https://vite.plus | bash
           echo "$HOME/.vite-plus/bin" >> $GITHUB_PATH
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           registry-url: https://registry.npmjs.org
 
