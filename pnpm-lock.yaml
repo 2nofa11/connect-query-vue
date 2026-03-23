@@ -14,7 +14,7 @@ importers:
     dependencies:
       '@connectrpc/connect-query-core':
         specifier: 2.2.0
-        version: 2.2.0(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.90.20)
+        version: 2.2.0(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.95.2)
     devDependencies:
       '@bufbuild/protobuf':
         specifier: 2.11.0
@@ -23,8 +23,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1(@bufbuild/protobuf@2.11.0)
       '@tanstack/vue-query':
-        specifier: 5.92.9
-        version: 5.92.9(vue@3.5.30(typescript@5.9.3))
+        specifier: 5.95.2
+        version: 5.95.2(vue@3.5.30(typescript@5.9.3))
       '@types/node':
         specifier: ^25.3.5
         version: 25.5.0
@@ -671,11 +671,11 @@ packages:
     resolution: {integrity: sha512-Wo1iKt2b9OT7d+YGhvEPD3DXvPv2etTusIMhMUoG7fbhmxcXCtIjJDEygy91Y2JFlwGyjqiBPRozme7UD8hoqg==}
     engines: {node: '>=12'}
 
-  '@tanstack/query-core@5.90.20':
-    resolution: {integrity: sha512-OMD2HLpNouXEfZJWcKeVKUgQ5n+n3A2JFmBaScpNDUqSrQSjiveC7dKMe53uJUg1nDG16ttFPz2xfilz6i2uVg==}
+  '@tanstack/query-core@5.95.2':
+    resolution: {integrity: sha512-o4T8vZHZET4Bib3jZ/tCW9/7080urD4c+0/AUaYVpIqOsr7y0reBc1oX3ttNaSW5mYyvZHctiQ/UOP2PfdmFEQ==}
 
-  '@tanstack/vue-query@5.92.9':
-    resolution: {integrity: sha512-jjAZcqKveyX0C4w/6zUqbnqk/XzuxNWaFsWjGTJWULVFizUNeLGME2gf9vVSDclIyiBhR13oZJPPs6fJgfpIJQ==}
+  '@tanstack/vue-query@5.95.2':
+    resolution: {integrity: sha512-GleO0GrUPdvObtff/D3iQ5kUERQM3dM6vT5pWl4zC3ap2JO84x4SQbUa1G7czKx96lETRiHnw7ZuatSRaaZqQQ==}
     peerDependencies:
       '@vue/composition-api': ^1.1.2
       vue: ^2.6.0 || ^3.3.0
@@ -1443,11 +1443,11 @@ snapshots:
 
   '@bufbuild/protobuf@2.11.0': {}
 
-  '@connectrpc/connect-query-core@2.2.0(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.90.20)':
+  '@connectrpc/connect-query-core@2.2.0(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.95.2)':
     dependencies:
       '@bufbuild/protobuf': 2.11.0
       '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.11.0)
-      '@tanstack/query-core': 5.90.20
+      '@tanstack/query-core': 5.95.2
 
   '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0)':
     dependencies:
@@ -1771,12 +1771,12 @@ snapshots:
     dependencies:
       remove-accents: 0.5.0
 
-  '@tanstack/query-core@5.90.20': {}
+  '@tanstack/query-core@5.95.2': {}
 
-  '@tanstack/vue-query@5.92.9(vue@3.5.30(typescript@5.9.3))':
+  '@tanstack/vue-query@5.95.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@tanstack/match-sorter-utils': 8.19.4
-      '@tanstack/query-core': 5.90.20
+      '@tanstack/query-core': 5.95.2
       '@vue/devtools-api': 6.6.4
       vue: 3.5.30(typescript@5.9.3)
       vue-demi: 0.14.10(vue@3.5.30(typescript@5.9.3))
