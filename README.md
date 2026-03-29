@@ -58,21 +58,21 @@ Returns the Connect transport provided via `provideTransport()`.
 
 ### API Coverage vs connect-query (official)
 
-![API Coverage](https://img.shields.io/badge/API%20Coverage-60%25-yellow)
+![API Coverage](https://img.shields.io/badge/API%20Coverage-80%25-brightgreen)
 
-Implements **60%** (6/10) of the exports from the official [`@connectrpc/connect-query`](https://github.com/connectrpc/connect-query-es).
+Implements **80%** (8/10) of the exports from the official [`@connectrpc/connect-query`](https://github.com/connectrpc/connect-query-es).
 
 | Status         | API                        |
 | -------------- | -------------------------- |
+| ✅ Implemented | `UseInfiniteQueryOptions`  |
 | ✅ Implemented | `UseMutationOptions`       |
 | ✅ Implemented | `UseQueryOptions`          |
+| ✅ Implemented | `useInfiniteQuery`         |
 | ✅ Implemented | `useMutation`              |
 | ✅ Implemented | `useQuery`                 |
 | ✅ Implemented | `useSuspenseQuery`         |
 | ✅ Implemented | `useTransport`             |
 | ❌ Not yet     | `TransportProvider`        |
-| ❌ Not yet     | `UseInfiniteQueryOptions`  |
-| ❌ Not yet     | `useInfiniteQuery`         |
 | ❌ Not yet     | `useSuspenseInfiniteQuery` |
 | 🔵 Vue-only    | `provideTransport`         |
 
