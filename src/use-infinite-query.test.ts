@@ -4,12 +4,12 @@ import { flushPromises, mount } from "@vue/test-utils";
 import { QueryCache } from "@tanstack/vue-query";
 import type { Plugin } from "vue";
 import { defineComponent, ref } from "vue";
-import { describe, expect, it, vi } from "vite-plus/test";
+import { describe, expect, expectTypeOf, it, vi } from "vite-plus/test";
 
 import { ListService, ListRequestSchema, ListResponseSchema } from "test-utils/gen/list_pb.js";
 import { mockPaginatedTransport } from "test-utils";
 
-import { useInfiniteQuery } from "./use-infinite-query.js";
+import { useInfiniteQuery, useSuspenseInfiniteQuery } from "./use-infinite-query.js";
 import { useQuery } from "./use-query.js";
 import { wrapper } from "./test/test-wrapper.js";
 
@@ -377,5 +377,103 @@ describe("useInfiniteQuery", () => {
     await flushPromises();
     // preview is not the pageParamKey, so it is part of the query key → new cache entry
     expect(queryClient.getQueryCache().getAll()).toHaveLength(2);
+  });
+});
+
+describe("useSuspenseInfiniteQuery", () => {
+  it("can query paginated data", async () => {
+    const { plugins } = wrapper({}, mockedPaginatedTransport);
+    const { result } = withSetup(
+      () =>
+        useSuspenseInfiniteQuery(
+          methodDescriptor,
+          { page: 0n },
+          {
+            getNextPageParam: (lastPage) => lastPage.page + 1n,
+            pageParamKey: "page",
+          },
+        ),
+      plugins,
+    );
+
+    await flushPromises();
+
+    expect(result.isSuccess.value).toBe(true);
+    expect(result.data.value).toEqual({
+      pageParams: [0n],
+      pages: [
+        create(ListResponseSchema, {
+          items: ["-2 Item", "-1 Item", "0 Item"],
+          page: 0n,
+        }),
+      ],
+    });
+
+    await result.fetchNextPage();
+    await flushPromises();
+
+    expect(result.isFetching.value).toBe(false);
+    expect(result.data.value).toEqual({
+      pageParams: [0n, 1n],
+      pages: [
+        create(ListResponseSchema, {
+          items: ["-2 Item", "-1 Item", "0 Item"],
+          page: 0n,
+        }),
+        create(ListResponseSchema, {
+          items: ["1 Item", "2 Item", "3 Item"],
+          page: 1n,
+        }),
+      ],
+    });
+  });
+
+  it("can not be disabled with skipToken", () => {
+    expectTypeOf(useSuspenseInfiniteQuery).parameter(1).not.toMatchTypeOf<typeof skipToken>();
+  });
+
+  it("does not allow excess properties", () => {
+    expectTypeOf(useSuspenseInfiniteQuery)
+      .parameter(1)
+      .not.toMatchTypeOf<{ page: bigint; extraField: string }>();
+  });
+
+  it("can pass headers through", async () => {
+    let resolve!: () => void;
+    const promise = new Promise<void>((res) => {
+      resolve = res;
+    });
+    const transport = mockPaginatedTransport({ items: ["Intercepted!"], page: 0n }, false, {
+      router: {
+        interceptors: [
+          (next) => (req) => {
+            expect(req.header.get("x-custom-header")).toEqual("custom-value");
+            resolve();
+            return next(req);
+          },
+        ],
+      },
+    });
+    const { plugins } = wrapper({});
+    const { result } = withSetup(
+      () =>
+        useSuspenseInfiniteQuery(
+          methodDescriptor,
+          { page: 0n },
+          {
+            getNextPageParam: (lastPage) => lastPage.page + 1n,
+            pageParamKey: "page",
+            transport,
+            headers: { "x-custom-header": "custom-value" },
+          },
+        ),
+      plugins,
+    );
+
+    await flushPromises();
+    await promise;
+
+    expect(result.isSuccess.value).toBe(true);
+    expect(result.data.value?.pages[0].items).toEqual(["Intercepted!"]);
   });
 });

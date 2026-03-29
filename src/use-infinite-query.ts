@@ -20,6 +20,35 @@ import { computed, toValue } from "vue";
 import { useTransport } from "./use-transport.js";
 
 /**
+ * Options for useSuspenseInfiniteQuery
+ */
+export type UseSuspenseInfiniteQueryOptions<
+  I extends DescMessage,
+  O extends DescMessage,
+  ParamKey extends keyof MessageInitShape<I>,
+  SelectOutData = MessageShape<O>,
+  SelectOutPageParam = MessageInitShape<I>[ParamKey],
+> = Omit<
+  Exclude<
+    TanStackUseInfiniteQueryOptions<
+      MessageShape<O>,
+      ConnectError,
+      InfiniteData<SelectOutData, SelectOutPageParam>,
+      ConnectQueryKey<O>,
+      MessageInitShape<I>[ParamKey]
+    >,
+    Ref<unknown>
+  >,
+  "getNextPageParam" | "initialPageParam" | "queryFn" | "queryKey" | "enabled" | "placeholderData"
+> &
+  ConnectInfiniteQueryOptions<I, O, ParamKey> & {
+    /** The transport to be used for the fetching. */
+    transport?: Transport;
+    /** Headers to be sent with the request. */
+    headers?: HeadersInit;
+  };
+
+/**
  * Options for useInfiniteQuery
  */
 export type UseInfiniteQueryOptions<
@@ -72,6 +101,43 @@ function mergeInfiniteQueryOptions<O extends DescMessage, SelectOutData, SelectO
     ConnectQueryKey<O>,
     SelectOutPageParam
   >;
+}
+
+/**
+ * Query the method provided. Maps to useSuspenseInfiniteQuery on tanstack/react-query
+ */
+export function useSuspenseInfiniteQuery<
+  I extends DescMessage,
+  O extends DescMessage,
+  const ParamKey extends keyof MessageInitShape<I>,
+  SelectOutData = MessageShape<O>,
+  SelectOutPageParam = MessageInitShape<I>[ParamKey],
+>(
+  schema: DescMethodUnary<I, O>,
+  input: MaybeRefOrGetter<MessageInitShape<I> & Required<Pick<MessageInitShape<I>, ParamKey>>>,
+  {
+    transport,
+    pageParamKey,
+    getNextPageParam,
+    headers,
+    ...queryOptions
+  }: UseSuspenseInfiniteQueryOptions<I, O, ParamKey, SelectOutData, SelectOutPageParam>,
+): UseInfiniteQueryReturnType<InfiniteData<SelectOutData, SelectOutPageParam>, ConnectError> {
+  const transportFromCtx = useTransport();
+  const baseOptions = computed(() =>
+    createInfiniteQueryOptions(schema, toValue(input), {
+      transport: transport ?? transportFromCtx,
+      getNextPageParam,
+      pageParamKey,
+      headers,
+    }),
+  );
+  return tsUseInfiniteQuery(() =>
+    mergeInfiniteQueryOptions<O, SelectOutData, SelectOutPageParam>(
+      baseOptions.value,
+      queryOptions,
+    ),
+  );
 }
 
 /**
