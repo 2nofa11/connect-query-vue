@@ -20,8 +20,12 @@ parse_exports() {
     | sort
 }
 
-parse_exports "$REACT_INDEX" > "$TMP/react"
+parse_exports "$REACT_INDEX" > "$TMP/react_raw"
 parse_exports "$VUE_INDEX"   > "$TMP/vue"
+
+# Apply framework-specific name mappings (React name → Vue equivalent)
+# These are APIs that exist in both frameworks under different names.
+sed 's/^TransportProvider$/provideTransport/' "$TMP/react_raw" | sort > "$TMP/react"
 
 comm -12 "$TMP/react" "$TMP/vue" > "$TMP/implemented"
 comm -23 "$TMP/react" "$TMP/vue" > "$TMP/missing"
