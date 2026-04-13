@@ -25,8 +25,8 @@ importers:
         specifier: ^5.99.0
         version: 5.99.0(vue@3.5.32(typescript@6.0.2))
       '@tanstack/vue-query-devtools':
-        specifier: ^6.1.10
-        version: 6.1.10(@tanstack/vue-query@5.99.0(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
+        specifier: ^6.1.16
+        version: 6.1.16(@tanstack/vue-query@5.99.0(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
       connect-query-vue:
         specifier: latest
         version: 0.0.8(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))(@tanstack/query-core@5.99.0)(@tanstack/vue-query@5.99.0(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
@@ -483,13 +483,13 @@ packages:
   '@tanstack/query-core@5.99.0':
     resolution: {integrity: sha512-3Jv3WQG0BCcH7G+7lf/bP8QyBfJOXeY+T08Rin3GZ1bshvwlbPt7NrDHMEzGdKIOmOzvIQmxjk28YEQX60k7pQ==}
 
-  '@tanstack/query-devtools@5.95.2':
-    resolution: {integrity: sha512-QfaoqBn9uAZ+ICkA8brd1EHj+qBF6glCFgt94U8XP5BT6ppSsDBI8IJ00BU+cAGjQzp6wcKJL2EmRYvxy0TWIg==}
+  '@tanstack/query-devtools@5.99.0':
+    resolution: {integrity: sha512-m4ufXaJ8FjWXw7xDtyzE/6fkZAyQFg9WrbMrUpt8ZecRJx58jiFOZ2lxZMphZdIpAnIeto/S8stbwLKLusyckQ==}
 
-  '@tanstack/vue-query-devtools@6.1.10':
-    resolution: {integrity: sha512-ezRXSpbwt+6EKi2V1s3TYX9PgUBgm7n3mEbxBUthfU2dH9dJKfmzOv/0Ft08LkrBYJDss4nmoY3kacUNbV1dXA==}
+  '@tanstack/vue-query-devtools@6.1.16':
+    resolution: {integrity: sha512-2Q+LnHSWwd8wkR/uoSmuziAmkDK4ISbMt8Naabpts8Nf4nMIKF6YfiMhbPjpTAHoBeBREfsq9G62lYYAGChVXw==}
     peerDependencies:
-      '@tanstack/vue-query': ^5.95.2
+      '@tanstack/vue-query': ^5.99.0
       vue: ^3.3.0
 
   '@tanstack/vue-query@5.99.0':
@@ -1392,11 +1392,11 @@ snapshots:
 
   '@tanstack/query-core@5.99.0': {}
 
-  '@tanstack/query-devtools@5.95.2': {}
+  '@tanstack/query-devtools@5.99.0': {}
 
-  '@tanstack/vue-query-devtools@6.1.10(@tanstack/vue-query@5.99.0(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))':
+  '@tanstack/vue-query-devtools@6.1.16(@tanstack/vue-query@5.99.0(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))':
     dependencies:
-      '@tanstack/query-devtools': 5.95.2
+      '@tanstack/query-devtools': 5.99.0
       '@tanstack/vue-query': 5.99.0(vue@3.5.32(typescript@6.0.2))
       vue: 3.5.32(typescript@6.0.2)
 
