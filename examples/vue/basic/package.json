@@ -11,7 +11,7 @@
     "check": "vp check"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.5.1",
+    "@bufbuild/protobuf": "^2.12.0",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
     "@tanstack/vue-query": "^5.99.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@bufbuild/buf": "1.67.0",
-    "@bufbuild/protoc-gen-es": "^2.5.1",
+    "@bufbuild/protoc-gen-es": "^2.12.0",
     "@connectrpc/protoc-gen-connect-query": "^2.2.0",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/test-utils": "^2.4.9",
