@@ -20,7 +20,7 @@
     "vue": "^3.5.38"
   },
   "devDependencies": {
-    "@bufbuild/buf": "1.70.0",
+    "@bufbuild/buf": "1.71.0",
     "@bufbuild/protoc-gen-es": "^2.12.1",
     "@connectrpc/protoc-gen-connect-query": "^2.2.0",
     "@vitejs/plugin-vue": "^6.0.7",
