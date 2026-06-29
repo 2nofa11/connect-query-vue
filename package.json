@@ -36,7 +36,7 @@
     "@connectrpc/connect": "2.1.1",
     "@tanstack/vue-query": "5.101.0",
     "@types/node": "^26.0.0",
-    "@typescript/native-preview": "7.0.0-dev.20260622.1",
+    "@typescript/native-preview": "7.0.0-dev.20260629.1",
     "@vue/test-utils": "2.4.11",
     "bumpp": "^11.0.1",
     "happy-dom": "^20.8.4",
