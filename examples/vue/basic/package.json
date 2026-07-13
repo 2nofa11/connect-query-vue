@@ -17,7 +17,7 @@
     "@tanstack/vue-query": "^5.101.2",
     "@tanstack/vue-query-devtools": "^6.1.36",
     "connect-query-vue": "latest",
-    "vue": "^3.5.38"
+    "vue": "^3.5.39"
   },
   "devDependencies": {
     "@bufbuild/buf": "1.71.0",
