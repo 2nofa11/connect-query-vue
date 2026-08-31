@@ -14,7 +14,7 @@
     "@bufbuild/protobuf": "^2.14.0",
     "@connectrpc/connect": "^2.0.2",
     "@connectrpc/connect-web": "^2.0.2",
-    "@tanstack/vue-query": "^5.101.4",
+    "@tanstack/vue-query": "^5.102.8",
     "@tanstack/vue-query-devtools": "^6.1.38",
     "connect-query-vue": "latest",
     "vue": "^3.5.42"
