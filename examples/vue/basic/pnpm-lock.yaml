@@ -25,8 +25,8 @@ importers:
         specifier: ^5.102.8
         version: 5.102.8(vue@3.5.42(typescript@6.0.3))
       '@tanstack/vue-query-devtools':
-        specifier: ^6.1.38
-        version: 6.1.38(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
+        specifier: ^6.1.48
+        version: 6.1.48(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
       connect-query-vue:
         specifier: latest
         version: 0.0.8(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))(@tanstack/query-core@5.102.8)(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
@@ -503,13 +503,13 @@ packages:
   '@tanstack/query-core@5.102.8':
     resolution: {integrity: sha512-ZNjkJ33CqvPNec/6lZBnHqLc3EVGPZ9ySLhYahU9TcuRFdmwXewuj0c4hwSWcGHqEUwcSrKeZ+oGcvPBqXcQcg==}
 
-  '@tanstack/query-devtools@5.101.4':
-    resolution: {integrity: sha512-z5IPHnDX3aUWeTWlRKLyooBQekaCAw4xRpZqPQ390RiWTDBcTynjpPT221BArw0u2+pnQMdGvPQI9YNNubBcmA==}
+  '@tanstack/query-devtools@5.102.8':
+    resolution: {integrity: sha512-ZgeMKuF5d/zOE+tgWm3cSbD6Zcbr6IugVsnbHzUcSismqLZDSUPBKM6ILUxExgwe6rPAOox2x5bA5T+PSOQG0Q==}
 
-  '@tanstack/vue-query-devtools@6.1.38':
-    resolution: {integrity: sha512-JrZR8p+0v+eRXANudvTzfj5robfr6xh2rjZEqIiHbbxFgtdoTnQAJpoB7sQBw4xfvO8VCoG/xFaSnpPX1AjihA==}
+  '@tanstack/vue-query-devtools@6.1.48':
+    resolution: {integrity: sha512-zpFjTlwfjglgZ3/PJB4lJcfhrVdEJwO2e5xCFGPWfQxChg8VzgSp0sGMBquzRCFf3BtAtDXnGYC3JIBz+Fe4Eg==}
     peerDependencies:
-      '@tanstack/vue-query': ^5.101.4
+      '@tanstack/vue-query': ^5.102.8
       vue: ^3.3.0
 
   '@tanstack/vue-query@5.102.8':
@@ -1672,11 +1672,11 @@ snapshots:
 
   '@tanstack/query-core@5.102.8': {}
 
-  '@tanstack/query-devtools@5.101.4': {}
+  '@tanstack/query-devtools@5.102.8': {}
 
-  '@tanstack/vue-query-devtools@6.1.38(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))':
+  '@tanstack/vue-query-devtools@6.1.48(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))':
     dependencies:
-      '@tanstack/query-devtools': 5.101.4
+      '@tanstack/query-devtools': 5.102.8
       '@tanstack/vue-query': 5.102.8(vue@3.5.42(typescript@6.0.3))
       vue: 3.5.42(typescript@6.0.3)
 
