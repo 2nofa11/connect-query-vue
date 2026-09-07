@@ -13,14 +13,14 @@ importers:
   .:
     dependencies:
       '@bufbuild/protobuf':
-        specifier: ^2.14.0
-        version: 2.14.0
+        specifier: ^2.14.1
+        version: 2.14.1
       '@connectrpc/connect':
         specifier: ^2.0.2
-        version: 2.1.1(@bufbuild/protobuf@2.14.0)
+        version: 2.1.1(@bufbuild/protobuf@2.14.1)
       '@connectrpc/connect-web':
         specifier: ^2.0.2
-        version: 2.1.1(@bufbuild/protobuf@2.14.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0))
+        version: 2.1.1(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))
       '@tanstack/vue-query':
         specifier: ^5.102.8
         version: 5.102.8(vue@3.5.42(typescript@6.0.3))
@@ -29,7 +29,7 @@ importers:
         version: 6.1.38(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
       connect-query-vue:
         specifier: latest
-        version: 0.0.8(@bufbuild/protobuf@2.14.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0))(@tanstack/query-core@5.102.8)(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
+        version: 0.0.8(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))(@tanstack/query-core@5.102.8)(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
       vue:
         specifier: ^3.5.42
         version: 3.5.42(typescript@6.0.3)
@@ -38,11 +38,11 @@ importers:
         specifier: 1.72.0
         version: 1.72.0
       '@bufbuild/protoc-gen-es':
-        specifier: ^2.14.0
-        version: 2.14.0(@bufbuild/protobuf@2.14.0)
+        specifier: ^2.14.1
+        version: 2.14.1(@bufbuild/protobuf@2.14.1)
       '@connectrpc/protoc-gen-connect-query':
         specifier: ^2.3.1
-        version: 2.3.1(@bufbuild/protoc-gen-es@2.14.0(@bufbuild/protobuf@2.14.0))
+        version: 2.3.1(@bufbuild/protoc-gen-es@2.14.1(@bufbuild/protobuf@2.14.1))
       '@vitejs/plugin-vue':
         specifier: ^6.0.8
         version: 6.0.8(@voidzero-dev/vite-plus-core@0.3.0(@types/node@26.4.0)(typescript@6.0.3))(vue@3.5.42(typescript@6.0.3))
@@ -142,18 +142,24 @@ packages:
   '@bufbuild/protobuf@2.14.0':
     resolution: {integrity: sha512-C3UGsiCwSprE2NKIIFA3hCDlpXTMCAXRZuEVp88L1GY36Y41+rYL5fryE+nOFhp4p4JPQvdV8PQ4DWgHgeTE+w==}
 
-  '@bufbuild/protoc-gen-es@2.14.0':
-    resolution: {integrity: sha512-/Rrui0BJWSRONiKGYzqWq9ivGN3+cYkmc47QWITufr7K6yDb8HfssuJUSQZeptyg/rHbHrfDzCUjzoJ2pwuafg==}
+  '@bufbuild/protobuf@2.14.1':
+    resolution: {integrity: sha512-agRJn3+EJDUe8AvxTx/LnHA/GErvLE62pSaSk7+MwFOtOv8eWBu/qCq2qoZjBjVZ3C2aiFJCveuSs17KMkYGOw==}
+
+  '@bufbuild/protoc-gen-es@2.14.1':
+    resolution: {integrity: sha512-agiGxvA1VAzWPdtOiktK39BNvGgHc1jHBCI1XYQtCQDSpt/5pZ7jTRGKv0fYzExbovDVu+yxJq4Srpv8zCIvUQ==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
-      '@bufbuild/protobuf': 2.14.0
+      '@bufbuild/protobuf': 2.14.1
     peerDependenciesMeta:
       '@bufbuild/protobuf':
         optional: true
 
   '@bufbuild/protoplugin@2.14.0':
     resolution: {integrity: sha512-S0TvZhVtTEkZQRj2JsXBCXiib/b0+bLQtJCcn+hj9O/usgbcgxHn4D+ii22Ao3qj0/kKxVYeo7BtAI2dMk+iig==}
+
+  '@bufbuild/protoplugin@2.14.1':
+    resolution: {integrity: sha512-oddqHkmUlBSo1TgswPW6hzrP/3nxMIdKUMcB6/NSY/oUkepDV7SealCZlE0ZxhLRIgmvDSuNWOb0HEKfsWPJww==}
 
   '@connectrpc/connect-query-core@2.2.0':
     resolution: {integrity: sha512-t/CuxW/vP84y2iyS+PnbAnBwgOTYMzHXTSoBUKC1vIn706aNiZP40Y6mGJybglyH63RhAPcOdUgzG7DjzaAHCw==}
@@ -1274,6 +1280,10 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.28:
+    resolution: {integrity: sha512-RRuzqDtt5Y9h3quz5hWhK+TPnsmVs6WwSU6LkJMeY4HstUEDuYTG8UJSdawMRzmzAtV+KEoG8N3Qg2qLy5vM/A==}
+    engines: {node: ^10 || ^12 || >=14}
+
   pretty-format@27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -1306,8 +1316,8 @@ packages:
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
-  tinyexec@1.3.0:
-    resolution: {integrity: sha512-QKAl9m8gWWGHV8jZcPeym6j+XULi6tOf1mT83WYJ4Lk2ytW/uwAWkrP0uFsdoYMdueVJ0qs26wZ+23xeB4ibNQ==}
+  tinyexec@1.3.1:
+    resolution: {integrity: sha512-GCvB3aoys96IuDFBMcTB46JOR6mdMtAToqwiW8JlWhsoh1mhHi/xn9ss/Dg7N555GiJyEt2qzoG/NHCwM6h1EA==}
     engines: {node: '>=18'}
 
   tinyglobby@0.2.17:
@@ -1454,11 +1464,13 @@ snapshots:
 
   '@bufbuild/protobuf@2.14.0': {}
 
-  '@bufbuild/protoc-gen-es@2.14.0(@bufbuild/protobuf@2.14.0)':
+  '@bufbuild/protobuf@2.14.1': {}
+
+  '@bufbuild/protoc-gen-es@2.14.1(@bufbuild/protobuf@2.14.1)':
     dependencies:
-      '@bufbuild/protoplugin': 2.14.0
+      '@bufbuild/protoplugin': 2.14.1
     optionalDependencies:
-      '@bufbuild/protobuf': 2.14.0
+      '@bufbuild/protobuf': 2.14.1
     transitivePeerDependencies:
       - supports-color
 
@@ -1470,27 +1482,35 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@connectrpc/connect-query-core@2.2.0(@bufbuild/protobuf@2.14.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0))(@tanstack/query-core@5.102.8)':
+  '@bufbuild/protoplugin@2.14.1':
     dependencies:
-      '@bufbuild/protobuf': 2.14.0
-      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.14.0)
+      '@bufbuild/protobuf': 2.14.1
+      '@typescript/vfs': 1.6.4(typescript@5.4.5)
+      typescript: 5.4.5
+    transitivePeerDependencies:
+      - supports-color
+
+  '@connectrpc/connect-query-core@2.2.0(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))(@tanstack/query-core@5.102.8)':
+    dependencies:
+      '@bufbuild/protobuf': 2.14.1
+      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.14.1)
       '@tanstack/query-core': 5.102.8
 
-  '@connectrpc/connect-web@2.1.1(@bufbuild/protobuf@2.14.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0))':
+  '@connectrpc/connect-web@2.1.1(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))':
     dependencies:
-      '@bufbuild/protobuf': 2.14.0
-      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.14.0)
+      '@bufbuild/protobuf': 2.14.1
+      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.14.1)
 
-  '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0)':
+  '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1)':
     dependencies:
-      '@bufbuild/protobuf': 2.14.0
+      '@bufbuild/protobuf': 2.14.1
 
-  '@connectrpc/protoc-gen-connect-query@2.3.1(@bufbuild/protoc-gen-es@2.14.0(@bufbuild/protobuf@2.14.0))':
+  '@connectrpc/protoc-gen-connect-query@2.3.1(@bufbuild/protoc-gen-es@2.14.1(@bufbuild/protobuf@2.14.1))':
     dependencies:
-      '@bufbuild/protobuf': 2.14.0
+      '@bufbuild/protobuf': 2.14.1
       '@bufbuild/protoplugin': 2.14.0
     optionalDependencies:
-      '@bufbuild/protoc-gen-es': 2.14.0(@bufbuild/protobuf@2.14.0)
+      '@bufbuild/protoc-gen-es': 2.14.1(@bufbuild/protobuf@2.14.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -1792,7 +1812,7 @@ snapshots:
       '@oxc-project/runtime': 0.133.0
       '@oxc-project/types': 0.133.0
       lightningcss: 1.33.0
-      postcss: 8.5.26
+      postcss: 8.5.28
     optionalDependencies:
       '@types/node': 26.4.0
       fsevents: 2.3.3
@@ -1849,7 +1869,7 @@ snapshots:
       sirv: 3.0.2
       std-env: 4.2.0
       tinybench: 2.9.0
-      tinyexec: 1.3.0
+      tinyexec: 1.3.1
       tinyglobby: 0.2.17
       vite: '@voidzero-dev/vite-plus-core@0.3.0(@types/node@26.4.0)(typescript@6.0.3)'
       ws: 8.21.3
@@ -2048,11 +2068,11 @@ snapshots:
       ini: 1.3.8
       proto-list: 1.2.4
 
-  connect-query-vue@0.0.8(@bufbuild/protobuf@2.14.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0))(@tanstack/query-core@5.102.8)(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3)):
+  connect-query-vue@0.0.8(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))(@tanstack/query-core@5.102.8)(@tanstack/vue-query@5.102.8(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3)):
     dependencies:
-      '@bufbuild/protobuf': 2.14.0
-      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.14.0)
-      '@connectrpc/connect-query-core': 2.2.0(@bufbuild/protobuf@2.14.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.0))(@tanstack/query-core@5.102.8)
+      '@bufbuild/protobuf': 2.14.1
+      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.14.1)
+      '@connectrpc/connect-query-core': 2.2.0(@bufbuild/protobuf@2.14.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.14.1))(@tanstack/query-core@5.102.8)
       '@tanstack/vue-query': 5.102.8(vue@3.5.42(typescript@6.0.3))
       vue: 3.5.42(typescript@6.0.3)
     transitivePeerDependencies:
@@ -2293,6 +2313,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  postcss@8.5.28:
+    dependencies:
+      nanoid: 3.3.18
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
   pretty-format@27.5.1:
     dependencies:
       ansi-regex: 5.0.1
@@ -2319,7 +2345,7 @@ snapshots:
 
   tinybench@2.9.0: {}
 
-  tinyexec@1.3.0: {}
+  tinyexec@1.3.1: {}
 
   tinyglobby@0.2.17:
     dependencies:
